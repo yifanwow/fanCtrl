@@ -1,31 +1,54 @@
 ﻿using System;
-using System.Management;
+using OpenHardwareMonitor.Hardware;
 
 class Program
 {
     static void Main(string[] args)
     {
-        // 创建WMI查询，用于获取传感器信息
-        ManagementObjectSearcher searcher = new ManagementObjectSearcher(
-            "root\\OpenHardwareMonitor",
-            "SELECT * FROM Sensor"
-        );
-
-        // 执行查询
-        ManagementObjectCollection collection = searcher.Get();
-
-        // 遍历控制器传感器
-        foreach (ManagementObject obj in collection)
+        Computer computer = new Computer()
         {
-            if (obj["SensorType"].ToString() == "Control")
-            {
-                string sensorName = obj["Name"]?.ToString() ?? "Unknown";
-                string powerValue = obj["Value"]?.ToString() ?? "Unknown";
-                Console.WriteLine("端口名称: " + sensorName + ", 当前功率: " + powerValue + " %");
-            }
+            MainboardEnabled = true,
+            CPUEnabled = true,
+            RAMEnabled = true,
+            GPUEnabled = true,
+            FanControllerEnabled = true,
+            HDDEnabled = true
+        };
+
+        computer.Open();
+        Console.WriteLine("列出所有可用的控制项：");
+
+        foreach (var hardware in computer.Hardware)
+        {
+            Console.WriteLine($"硬件名称: {hardware.Name}, 类型: {hardware.HardwareType}");
         }
 
-        Console.WriteLine("输出完毕。按任意键退出。");
-        Console.ReadKey();
+        // 遍历所有硬件和子硬件来寻找并列出控制项
+        //TraverseHardware(computer.Hardware);
+
+        computer.Close();
+    }
+
+    static void TraverseHardware(IHardware[] hardwareItems)
+    {
+        foreach (var hardware in hardwareItems)
+        {
+            foreach (var sensor in hardware.Sensors)
+            {
+                if (sensor.Control != null) // 检查是否存在控制项
+                {
+                    Console.WriteLine(
+                        $"控制项: {hardware.Name} - {sensor.Name}, "
+                            + $"当前值: {sensor.Control.SoftwareValue}"
+                    );
+                }
+            }
+
+            // 递归遍历子硬件的控制项
+            if (hardware.SubHardware.Length > 0)
+            {
+                TraverseHardware(hardware.SubHardware);
+            }
+        }
     }
 }

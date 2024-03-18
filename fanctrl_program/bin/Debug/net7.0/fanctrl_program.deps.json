@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v7.0": {
       "fanctrl_program/1.0.0": {
         "dependencies": {
-          "System.Management": "4.7.0"
+          "System.Management": "4.7.0",
+          "OpenHardwareMonitorLib": "0.9.6.0"
         },
         "runtime": {
           "fanctrl_program.dll": {}
@@ -56,7 +57,15 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "System.Security.Principal.Windows/4.7.0": {}
+      "System.Security.Principal.Windows/4.7.0": {},
+      "OpenHardwareMonitorLib/0.9.6.0": {
+        "runtime": {
+          "OpenHardwareMonitorLib.dll": {
+            "assemblyVersion": "0.9.6.0",
+            "fileVersion": "0.9.6.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -106,6 +115,11 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "OpenHardwareMonitorLib/0.9.6.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
