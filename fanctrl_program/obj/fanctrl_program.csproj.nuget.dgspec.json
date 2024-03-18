@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git-hub\\Yifanwow\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj": {}
+    "F:\\Software_develop\\git\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj": {}
   },
   "projects": {
-    "D:\\Git-hub\\Yifanwow\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj": {
+    "F:\\Software_develop\\git\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git-hub\\Yifanwow\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj",
+        "projectUniqueName": "F:\\Software_develop\\git\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj",
         "projectName": "fanctrl_program",
-        "projectPath": "D:\\Git-hub\\Yifanwow\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj",
+        "projectPath": "F:\\Software_develop\\git\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj",
         "packagesPath": "C:\\Users\\yifan\\.nuget\\packages\\",
-        "outputPath": "D:\\Git-hub\\Yifanwow\\fanCtrl\\fanctrl_program\\obj\\",
+        "outputPath": "F:\\Software_develop\\git\\fanCtrl\\fanctrl_program\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\Program\\vscode_tool\\NuGetPackages"
