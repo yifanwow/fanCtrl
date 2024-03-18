@@ -17,11 +17,7 @@ class Program
         // 遍历控制器传感器
         foreach (ManagementObject obj in collection)
         {
-            if (
-                obj["SensorType"].ToString() == "Control"
-                && obj["Value"] != null
-                && obj["Value"].ToString() != "0"
-            )
+            if (obj["SensorType"].ToString() == "Control")
             {
                 string sensorName = obj["Name"]?.ToString() ?? "Unknown";
                 string powerValue = obj["Value"]?.ToString() ?? "Unknown";
