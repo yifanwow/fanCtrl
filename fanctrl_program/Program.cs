@@ -1,5 +1,6 @@
 ﻿using System;
 using OpenHardwareMonitor.Hardware;
+using System.Text;
 using OpenHardwareMonitor.Hardware.LPC;
 
 class Program
@@ -29,30 +30,30 @@ class Program
     {
         foreach (var hardware in hardwareItems)
         {
-            Console.WriteLine($"{indent}硬件名称: {hardware.Name}, 类型: {hardware.HardwareType}");
-            hardware.Update(); // 更新硬件信息以获取最新数据
-
-            // 列出所有传感器和控制项
-            foreach (var sensor in hardware.Sensors)
-            {
-                Console.WriteLine(
-                    $"{indent}  传感器: {sensor.Name}, 类型: {sensor.SensorType}, 读数: {sensor.Value}"
-                );
-                if (sensor.Control != null) // 检查是否存在控制项
-                {
-                    Console.WriteLine(
-                        $"{indent}    控制项: {sensor.Name}, 当前值: {sensor.Control.SoftwareValue}"
-                    );
-                }
-            }
-
-            // 处理子硬件
             if (hardware.HardwareType == HardwareType.Mainboard)
             {
-                Console.WriteLine("主板: " + hardware.Name);
-                if (hardware.SubHardware != null)
+                Console.WriteLine($"{indent}硬件名称: {hardware.Name}, 类型: {hardware.HardwareType}");
+                hardware.Update(); // 更新硬件信息以获取最新数据
+                if (hardware.SubHardware.Length > 0)
                 {
-                    Console.WriteLine("子硬件数量: " + hardware.SubHardware.Length);
+                    foreach (IHardware subHardware in hardware.SubHardware)
+                    {
+                        subHardware.Update();
+
+                        foreach (var sensor in subHardware.Sensors)
+                        {
+                            Console.WriteLine(
+                                String.Format(
+                                    "名称 {0} 部件 {1} = 当前值 {2}",
+                                    sensor.Name,
+                                    sensor.Hardware,
+                                    sensor.Value.HasValue
+                                        ? sensor.Value.Value.ToString()
+                                        : "no value"
+                                )
+                            );
+                        }
+                    }
                 }
             }
         }
