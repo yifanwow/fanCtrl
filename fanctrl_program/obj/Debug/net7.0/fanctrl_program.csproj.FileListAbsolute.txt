@@ -17,3 +17,4 @@ D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\obj\Debug\net7.0\refint\fanctrl_prog
 D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\obj\Debug\net7.0\fanctrl_program.pdb
 D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\obj\Debug\net7.0\fanctrl_program.genruntimeconfig.cache
 D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\obj\Debug\net7.0\ref\fanctrl_program.dll
+D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\bin\Debug\net7.0\OpenHardwareMonitorLib.dll
