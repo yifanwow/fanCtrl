@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T4vVLSomzEsB+rf2od5f8qeo0lbRaMzGaq70ExQ1oVhKonGDULhib/wuWaPem3C+kTbZZAN+8FeilwZQUVbyRA==",
+  "dgSpecHash": "5xVBdZdwsBdWNJjbJAp5jkxXkNO+wDc2miB60HOdmtqdBu3QR6gGPgZlRMdWsTSqELqvR2KEMO5+opkJrEiNRA==",
   "success": true,
-  "projectFilePath": "D:\\Git-hub\\Yifanwow\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj",
+  "projectFilePath": "F:\\Software_develop\\git\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yifan\\.nuget\\packages\\system.management\\4.7.0\\system.management.4.7.0.nupkg.sha512"
   ],

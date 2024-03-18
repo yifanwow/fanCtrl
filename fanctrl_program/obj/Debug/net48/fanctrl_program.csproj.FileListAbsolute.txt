@@ -11,3 +11,16 @@ D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\bin\Debug\net48\OpenHardwareMonitorL
 D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.csproj.CopyComplete
 D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.exe
 D:\Git-hub\Yifanwow\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.pdb
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\fanctrl_program.exe.config
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\fanctrl_program.exe
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\fanctrl_program.pdb
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\OpenHardwareMonitorLib.dll
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.csproj.AssemblyReference.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.csproj.SuggestedBindingRedirects.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.GeneratedMSBuildEditorConfig.editorconfig
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.AssemblyInfoInputs.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.AssemblyInfo.cs
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.csproj.CoreCompileInputs.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.csproj.CopyComplete
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.exe
+F:\Software_develop\git\fanCtrl\fanctrl_program\obj\Debug\net48\fanctrl_program.pdb
