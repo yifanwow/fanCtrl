@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "6NHL0U6Ca36wcsZv5+gwItMP1SOdQcfVL8GiuGef1xpuAn/OR2iBQDgh1mbUoy088xRuR+2Imqe6cVuvhh+vGA==",
+  "success": true,
+  "projectFilePath": "D:\\Git-hub\\Yifanwow\\fanCtrl\\fanctrl_program\\fanctrl_program.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yifan\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\yifan\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\yifan\\.nuget\\packages\\system.codedom\\4.7.0\\system.codedom.4.7.0.nupkg.sha512",
+    "C:\\Users\\yifan\\.nuget\\packages\\system.management\\4.7.0\\system.management.4.7.0.nupkg.sha512",
+    "C:\\Users\\yifan\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\yifan\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
