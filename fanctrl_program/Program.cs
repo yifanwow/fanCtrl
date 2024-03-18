@@ -1,29 +1,41 @@
 ﻿using System;
 using OpenHardwareMonitor.Hardware;
-using System.Text;
-using OpenHardwareMonitor.Hardware.LPC;
+using System.Threading;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Computer computer = new Computer()
+        bool createdNew;
+        using (Mutex mutex = new Mutex(true, "Global\\OHWM_FanControl", out createdNew))
         {
-            MainboardEnabled = true,
-            CPUEnabled = true,
-            RAMEnabled = true,
-            GPUEnabled = true,
-            FanControllerEnabled = true,
-            HDDEnabled = true
-        };
+            if (!createdNew)
+            {
+                Console.WriteLine("已经有一个实例在运行。");
+                // 如果需要，可以在这里实现向已运行实例发送消息的逻辑
+                return;
+            }
 
-        computer.Open();
-        Console.WriteLine("列出所有可用的控制项：");
+            Computer computer = new Computer()
+            {
+                MainboardEnabled = true,
+                CPUEnabled = true,
+                RAMEnabled = true,
+                GPUEnabled = true,
+                FanControllerEnabled = true,
+                HDDEnabled = true
+            };
 
-        // 遍历所有硬件来寻找并列出控制项
-        TraverseHardware(computer.Hardware);
+            computer.Open();
+            Console.WriteLine("列出所有可用的控制项：");
 
-        computer.Close();
+            TraverseHardware(computer.Hardware);
+
+            Console.WriteLine("程序将保持运行以维持风扇设置。按任意键退出...");
+            Console.ReadKey();
+
+            computer.Close();
+        }
     }
 
     static void TraverseHardware(IHardware[] hardwareItems, string indent = "")
@@ -42,16 +54,49 @@ class Program
 
                         foreach (var sensor in subHardware.Sensors)
                         {
-                            Console.WriteLine(
-                                String.Format(
-                                    "名称 {0} 部件 {1} = 当前值 {2}",
-                                    sensor.Name,
-                                    sensor.Hardware,
-                                    sensor.Value.HasValue
-                                        ? sensor.Value.Value.ToString()
-                                        : "no value"
-                                )
-                            );
+                            // 仅处理控制类型的传感器
+                            if (sensor.SensorType == SensorType.Control)
+                            {
+                                if (sensor.Index == 1 || sensor.Index == 2)
+                                {
+                                    if (sensor.Control != null)
+                                    {
+                                        // 尝试设置一个新的控制值
+                                        float newValue = 50.0f;
+                                        Console.WriteLine(
+                                            $"是否将 {sensor.Name} 的控制值设置为 {newValue}？(Y/N)"
+                                        );
+                                        string userInput = Console.ReadLine();
+                                        if (userInput.ToLower() == "y")
+                                        {
+                                            // 尝试设置一个新的控制值
+                                            // 示例：设定为100%的控制值
+                                            sensor.Control.SetSoftware(newValue);
+                                            Console.WriteLine(
+                                                $"已将 {sensor.Name} 的控制值设置为 {newValue}%"
+                                            );
+                                            subHardware.Update();
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine($"已跳过将 {sensor.Name} 的控制值设置为 100.0f");
+                                        }
+                                    }
+                                }
+
+                                Console.WriteLine(
+                                    String.Format(
+                                        "\n名称 {0} 类型 {1} \n          部件 {2} = 当前值 {3}\n index {4}",
+                                        sensor.Name,
+                                        sensor.SensorType,
+                                        sensor.Hardware,
+                                        sensor.Value.HasValue
+                                            ? sensor.Value.Value.ToString()
+                                            : "no value",
+                                        sensor.Index
+                                    )
+                                );
+                            }
                         }
                     }
                 }
