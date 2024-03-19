@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.IO.Pipes;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 using OpenHardwareMonitor.Hardware;
+using fanCtrl;
 
 class Program
 {
     private static float[] fanSpeeds = { 30.0f, 50.0f, 70.0f, 90.0f, 100.0f };
     private static int currentIndex = 0;
     private static NamedPipeServerStream? pipeServer = null;
+    static Form? form; // 声明窗体作为全局变量
     private static Computer computer = new Computer()
     {
         MainboardEnabled = true,
@@ -34,6 +38,11 @@ class Program
             }
 
             Console.WriteLine("\n未检测到另一个实例正在运行，已启动新的实例。");
+
+            ShowWindow();
+
+            IconThread();
+
             computer.Open();
             Console.WriteLine("\n启动风扇控制...");
 
@@ -51,10 +60,77 @@ class Program
             // 异步接收命令
             pipeServer.BeginWaitForConnection(HandleClientConnection, null);
             Console.WriteLine("\n等待通信...");
-            Console.WriteLine("按任意键退出...\n");
-            Console.ReadKey();
+
+            Application.Run();
             computer.Close();
+            Application.Exit();
         }
+    }
+
+    static void IconThread()
+    {
+        // 创建托盘图标
+        NotifyIcon notifyIcon = new NotifyIcon();
+        notifyIcon.Icon = new Icon("Re.ico"); // 设置图标
+        notifyIcon.Visible = true;
+
+        // 添加托盘图标的右键菜单
+        ContextMenuStrip contextMenu = new ContextMenuStrip();
+        ToolStripMenuItem exitMenuItem = new ToolStripMenuItem("Exit");
+        exitMenuItem.Click += (sender, e) =>
+        {
+            computer.Close(); // 在退出程序时关闭computer对象
+            Application.Exit(); // 点击退出菜单时退出程序
+        }; // 点击退出菜单时退出程序
+        contextMenu.Items.Add(exitMenuItem);
+        notifyIcon.ContextMenuStrip = contextMenu;
+
+        notifyIcon.DoubleClick += (sender, e) =>
+        {
+            if (form != null)
+            {
+                form.Visible = true;
+                form.WindowState = FormWindowState.Normal;
+            }
+        };
+    }
+
+    static void ShowWindow()
+    {
+        form = new Form();
+        form.Text = "fanCtrl V.0.51"; // 设置窗体标题
+        form.Size = new Size(500, 770); // 设置窗体大小
+
+        // 创建一个用于显示文本的 RichTextBox 控件
+        RichTextBox richTextBox = new RichTextBox();
+        richTextBox.Multiline = true;
+        richTextBox.ScrollBars = RichTextBoxScrollBars.Vertical;
+        richTextBox.ReadOnly = true;
+        richTextBox.Dock = DockStyle.Fill;
+        richTextBox.SelectionBullet = false;
+        richTextBox.Font = new Font("Consolas", 10f); // 设置文本框字体
+        richTextBox.Text = "Version 0.51\n\n\n"; // 设置初始文本内容
+        form.Controls.Add(richTextBox);
+
+        // 在窗体加载完成后设置控制台输出的重定向
+        form.Load += (sender, e) =>
+        {
+            // 将原本要显示在控制台上的文本写入文本框
+            Console.SetOut(new ControlWriter(richTextBox));
+        };
+
+        // 当窗口关闭时最小化到托盘
+        form.FormClosing += (sender, e) =>
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true; // 取消关闭操作
+                form.Hide(); // 隐藏窗口
+            }
+        };
+
+        // 先显示窗体
+        form.Show();
     }
 
     private static void SendCommandToRunningInstance()
@@ -125,7 +201,6 @@ class Program
         );
 
         Console.WriteLine("\n等待通信...");
-        Console.WriteLine("按任意键退出...\n");
         pipeServer.BeginWaitForConnection(HandleClientConnection, null);
     }
 
@@ -155,9 +230,7 @@ class Program
                                         // 尝试设置一个新的控制值
                                         float newValue = fanSpeeds[index];
                                         sensor.Control.SetSoftware(newValue);
-                                        Console.WriteLine(
-                                            $"\n已把 {sensor.Name} 的控制值设置为 {newValue}%"
-                                        );
+                                        Console.WriteLine($"已把 {sensor.Name} 的控制值设置为 {newValue}%");
                                         subHardware.Update();
                                     }
                                 }

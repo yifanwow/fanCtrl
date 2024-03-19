@@ -1,0 +1,4 @@
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\publish\fanctrl_program.exe
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\publish\fanctrl_program.exe.config
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\publish\fanctrl_program.pdb
+F:\Software_develop\git\fanCtrl\fanctrl_program\bin\Debug\net48\publish\OpenHardwareMonitorLib.dll
