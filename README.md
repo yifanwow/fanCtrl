@@ -17,5 +17,5 @@ A C# program to control your computer fan speed (Hardware).
 必须至少有一个主实例运行才能够保持风扇转速的调整。
 
 #### 友情链接：
-感谢开源软件 OpenHardwareMoniter: https://github.com/openhardwaremonitor/openhardwaremonitor
+感谢开源软件 OpenHardwareMoniter: https://github.com/openhardwaremonitor/openhardwaremonitor  
 The Open Hardware Monitor WMI Provider: https://openhardwaremonitor.org/wordpress/wp-content/uploads/2011/04/OpenHardwareMonitor-WMI.pdf
