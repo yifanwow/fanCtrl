@@ -28,8 +28,8 @@ class Program
         {
             if (!createdNew)
             {
+                Console.WriteLine("\n\n检测到另一个实例正在运行，已发送新的风扇速度设置命令。");
                 SendCommandToRunningInstance();
-                Console.WriteLine("检测到另一个实例正在运行，已发送新的风扇速度设置命令。");
                 return;
             }
 
@@ -63,7 +63,8 @@ class Program
         using (var client = new NamedPipeClientStream("OHWM_FanControlPipe"))
         {
             client.Connect();
-            Console.WriteLine($"发送调整风扇的指令完毕。\n\n");
+            client.WriteByte(3); // 3 表示轮换调整风扇速度
+            Console.WriteLine($"\n发送调整风扇的指令完毕。\n\n");
             client.Flush();
             client.Close();
         }
@@ -73,14 +74,46 @@ class Program
     {
         // 结束等待客户端连接
         pipeServer?.EndWaitForConnection(ar);
+        if (pipeServer != null && pipeServer.CanRead)
+        {
+            int signal = pipeServer.ReadByte();
+            Console.WriteLine("\n\n\n-----------------收到新的风扇速度设置命令-----------------\n\n\n");
+            if (signal == 0)
+            { // Slow.cs 发送的信号
+                currentIndex--;
+                Console.WriteLine("---收到降低风扇速度的指令---");
+                if (currentIndex < 0)
+                {
+                    currentIndex = 0;
+                    Console.WriteLine("\n已是最低速度\n");
+                }
+            }
+            else if (signal == 1)
+            { // Fast.cs 发送的信号
+                currentIndex++;
+                Console.WriteLine("+++收到提高风扇速度的指令+++");
+                if (currentIndex >= fanSpeeds.Length)
+                {
+                    currentIndex = fanSpeeds.Length - 1;
+                    Console.WriteLine("\n已是最高速度\n");
+                }
+            }
+            else if (signal == 3)
+            { // SendCommandToRunningInstance 发送的信号
+                currentIndex++;
+                Console.WriteLine("-+-收到轮换风扇速度的指令-+-");
+                currentIndex = currentIndex % fanSpeeds.Length;
+            }
 
-        // 应用新的风扇速度设置
-        Console.WriteLine($"\n\n\n将把风扇速度设置为 {fanSpeeds[currentIndex]}%.\n\n\n");
-        TraverseHardware(computer.Hardware, currentIndex);
-
+            // 应用新的风扇速度设置
+            Console.WriteLine($"\n将把风扇速度设置为 {fanSpeeds[currentIndex]}%.\n");
+            TraverseHardware(computer.Hardware, currentIndex);
+        }
         // 断开连接并关闭管道
         pipeServer?.Disconnect();
         pipeServer?.Close();
+
+        Thread.Sleep(1700); // 等待1.7秒
 
         // 重新等待新的客户端连接
         pipeServer = new NamedPipeServerStream(
@@ -90,6 +123,7 @@ class Program
             PipeTransmissionMode.Byte,
             PipeOptions.Asynchronous
         );
+
         Console.WriteLine("\n等待通信...");
         Console.WriteLine("按任意键退出...\n");
         pipeServer.BeginWaitForConnection(HandleClientConnection, null);
@@ -108,7 +142,6 @@ class Program
                     foreach (IHardware subHardware in hardware.SubHardware)
                     {
                         subHardware.Update();
-
                         foreach (var sensor in subHardware.Sensors)
                         {
                             // 仅处理控制类型的传感器
@@ -147,7 +180,5 @@ class Program
                 }
             }
         }
-        currentIndex++;
-        currentIndex = currentIndex % fanSpeeds.Length;
     }
 }
