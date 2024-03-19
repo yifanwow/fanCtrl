@@ -57,30 +57,17 @@ class Program
                             // 仅处理控制类型的传感器
                             if (sensor.SensorType == SensorType.Control)
                             {
+                                //仅处理风扇控制器
                                 if (sensor.Index == 1 || sensor.Index == 2)
                                 {
                                     if (sensor.Control != null)
                                     {
+                                        //默认将所有的风扇控制值设置为50%
+                                        float newValue = 30.0f;
                                         // 尝试设置一个新的控制值
-                                        float newValue = 50.0f;
-                                        Console.WriteLine(
-                                            $"是否将 {sensor.Name} 的控制值设置为 {newValue}？(Y/N)"
-                                        );
-                                        string userInput = Console.ReadLine();
-                                        if (userInput.ToLower() == "y")
-                                        {
-                                            // 尝试设置一个新的控制值
-                                            // 示例：设定为100%的控制值
-                                            sensor.Control.SetSoftware(newValue);
-                                            Console.WriteLine(
-                                                $"已将 {sensor.Name} 的控制值设置为 {newValue}%"
-                                            );
-                                            subHardware.Update();
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine($"已跳过将 {sensor.Name} 的控制值设置为 100.0f");
-                                        }
+                                        sensor.Control.SetSoftware(newValue);
+                                        Console.WriteLine($"已将 {sensor.Name} 的控制值设置为 {newValue}%");
+                                        subHardware.Update();
                                     }
                                 }
 
