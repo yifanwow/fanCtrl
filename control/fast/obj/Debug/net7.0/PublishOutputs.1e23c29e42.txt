@@ -1,0 +1,5 @@
+F:\Software_develop\git\fanCtrl\control\fast\bin\Debug\net7.0\publish\fast.exe
+F:\Software_develop\git\fanCtrl\control\fast\bin\Debug\net7.0\publish\fast.dll
+F:\Software_develop\git\fanCtrl\control\fast\bin\Debug\net7.0\publish\fast.deps.json
+F:\Software_develop\git\fanCtrl\control\fast\bin\Debug\net7.0\publish\fast.runtimeconfig.json
+F:\Software_develop\git\fanCtrl\control\fast\bin\Debug\net7.0\publish\fast.pdb

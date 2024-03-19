@@ -14,8 +14,24 @@ A C# program to control your computer fan speed (Hardware).
 ### 注意事项：
 - 必须将文件部署到本地磁盘，**网络连接的磁盘无法启动管理员权限**。  
 - 必须至少有一个主实例运行才能够保持风扇转速的调整。
+- 由于硬件设备的性能涉及到管理员权限操作，所以请务必**开启管理员权限**或以管理员身份运行程序，否则会报错。
+- 目前部署之后还需要一定的手动操作来完成自动化设置，后续如果有时间会在继续改进争取一键懒人部署。
 
-#### 友情链接：
+### 步骤：
+编译的部分需要使用VS的命令行来进行：  
+`csc /out:fanSpeedFast.exe fanSpeedFast.cs`  
+或者用`dotnet build`和`publish`的命令来生成可执行的fast.exe或者slow.exe
+  
+### 降低使用过程中的突兀感
+- #### 使用Task Scheduler来绕过UAC的提示:
+    - [How to Create an Elevated Program Shortcut without a UAC Prompt in Windows](https://www.sevenforums.com/tutorials/11949-elevated-program-shortcut-without-uac-prompt-create.html)
+    - [How To Add Program To UAC Exception In Windows 10?](https://silicophilic.com/add-program-to-uac-exception/)
+- #### 使用vbs脚本来执行任务指令。
+> Q: 为什么不使用PowerShell或者Shortcut或者cmd?  
+我个人尝试了这三种情况都会弹出窗口，一闪而过，但理论上来说应该也是可以避免的，不过vbs比较简单就用了。
+
+
+### 友情链接：
 感谢所有的开源开发者以及OpenHardwareMoniter的制作者和维护者们。
-- [OpenHardwareMoniter](https://github.com/openhardwaremonitor/openhardwaremonitor)。  
+- [OpenHardwareMoniter](https://github.com/openhardwaremonitor/openhardwaremonitor)  
 - [The Open Hardware Monitor WMI Provider](https://openhardwaremonitor.org/wordpress/wp-content/uploads/2011/04/OpenHardwareMonitor-WMI.pdf)

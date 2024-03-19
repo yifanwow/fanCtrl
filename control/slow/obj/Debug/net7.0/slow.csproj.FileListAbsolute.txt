@@ -1,0 +1,15 @@
+F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\slow.exe
+F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\slow.deps.json
+F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\slow.runtimeconfig.json
+F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\slow.dll
+F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\slow.pdb
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.csproj.AssemblyReference.cache
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.GeneratedMSBuildEditorConfig.editorconfig
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.AssemblyInfoInputs.cache
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.AssemblyInfo.cs
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.csproj.CoreCompileInputs.cache
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.dll
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\refint\slow.dll
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.pdb
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\slow.genruntimeconfig.cache
+F:\Software_develop\git\fanCtrl\control\slow\obj\Debug\net7.0\ref\slow.dll
