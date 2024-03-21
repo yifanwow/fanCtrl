@@ -1,0 +1,16 @@
+<convert2exe>
+    <uacLevel>asInvoker</uacLevel>
+    <iconfile>C:\Users\yifan\AppData\Local\Vbsedit\x64\tools.ico</iconfile>
+    <folder>F:\Software_develop\git\fanCtrl\fanctrl_program\fanFast_executable</folder>
+    <dependencies />
+    <mode>gui</mode>
+    <appName>EXEFanFast</appName>
+    <bits>64</bits>
+    <silent>yes</silent>
+    <unicode>no</unicode>
+    <regfreecom>no</regfreecom>
+    <custom_description>run fast</custom_description>
+    <custom_copyright>© Yifan</custom_copyright>
+    <custom_productName>run fast</custom_productName>
+    <custom_version>1.0.0.1</custom_version>
+</convert2exe>
