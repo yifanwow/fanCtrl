@@ -235,6 +235,28 @@ class Program
                                     }
                                 }
 
+                                //调整水泵速度
+                                if (sensor.Index == 5)
+                                {
+                                    if (sensor.Control != null)
+                                    {
+                                        // 尝试设置一个新的控制值
+                                        float newValue = fanSpeeds[index];
+                                        if (newValue >= 70.0f)
+                                        { //如果风扇速度大于70%，则水泵速度设置为35%
+                                            newValue = 35.0f;
+                                        }
+                                        else
+                                        {
+                                            newValue = 25.0f;
+                                        }
+
+                                        sensor.Control.SetSoftware(newValue);
+                                        Console.WriteLine($"已把 {sensor.Name} 的控制值设置为 {newValue}%");
+                                        subHardware.Update();
+                                    }
+                                }
+
                                 /*Console.WriteLine(
                                     String.Format(
                                         "\n名称 {0} 类型 {1} \n\t\t 部件 {2} = 当前值 {3}\n index {4}",
