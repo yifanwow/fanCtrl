@@ -5,7 +5,7 @@
     <TargetFramework>net48</TargetFramework>
     <LangVersion>8.0</LangVersion> <!-- 设置 C# 语言版本为 8.0 -->
     <Nullable>enable</Nullable>
-     <ApplicationIcon>Re.ico</ApplicationIcon>
+    <ApplicationIcon>Re.ico</ApplicationIcon>
   </PropertyGroup>
     
   <ItemGroup>
