@@ -1,0 +1,15 @@
+F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\runSlow.exe
+F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\runSlow.deps.json
+F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\runSlow.runtimeconfig.json
+F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\runSlow.dll
+F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\runSlow.pdb
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.csproj.AssemblyReference.cache
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.GeneratedMSBuildEditorConfig.editorconfig
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.AssemblyInfoInputs.cache
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.AssemblyInfo.cs
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.csproj.CoreCompileInputs.cache
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.dll
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\refint\runSlow.dll
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.pdb
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\runSlow.genruntimeconfig.cache
+F:\Software_develop\git\fanCtrl\function\runslow\obj\Debug\net7.0\ref\runSlow.dll

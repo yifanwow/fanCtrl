@@ -1,0 +1,15 @@
+F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\runFast.exe
+F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\runFast.deps.json
+F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\runFast.runtimeconfig.json
+F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\runFast.dll
+F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\runFast.pdb
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.csproj.AssemblyReference.cache
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.GeneratedMSBuildEditorConfig.editorconfig
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.AssemblyInfoInputs.cache
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.AssemblyInfo.cs
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.csproj.CoreCompileInputs.cache
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.dll
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\refint\runFast.dll
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.pdb
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\runFast.genruntimeconfig.cache
+F:\Software_develop\git\fanCtrl\function\runfast\obj\Debug\net7.0\ref\runFast.dll
