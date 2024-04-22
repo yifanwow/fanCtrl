@@ -1,51 +1,45 @@
 # fanCtrl
-A C# program to control your computer fan speed (Hardware).  
 
-## 实现原理：
-原本是打算用wmi的方式来进行调整的，但是wmi的接口只提供了监听而不提供修改的功能。  
-所以目前是使用OpenHardwareMonitorLib.dll作为接口，其提供了一系列对于设备底层的监控和调整的指令。  
-由于原软件会导致多实例并存的问题，所以使用了 Mutex 类来确保只有一个实例的程序在运行，Mutex是协调多个线程对共享资源的访问的同步基元。  
+A C# program for controlling computer fan speed (Hardware).
 
-程序在运行时会尝试创建一个名为 "Global\\OHWM_FanControl" 的全局互斥体。如果程序是第一个尝试创建这个互斥体的实例（即 createdNew 为 true），则它获得了互斥体的初始所有权，可以继续执行。  如果之前已经有一个实例在运行，则 createdNew 为 false，并且程序会输出一条消息并返回。  
+## Implementation Principle:
+Initially, the plan was to use WMI for adjustments, but the WMI interface only provided monitoring capabilities without modification features. Therefore, OpenHardwareMonitorLib.dll is currently used as the interface, offering a range of commands for monitoring and adjusting hardware at a low level. To avoid issues with multiple instances running concurrently, the Mutex class is employed to ensure that only one instance of the program is running. Mutex is a synchronization primitive used to coordinate multiple threads' access to a shared resource.
 
-再次运行，新的实例则会通知原有的实例对速度进行轮换的调整。  
-在主实例界面输入任意值都可以关闭主实例。  
+The program tries to create a global mutex named "Global\\OHWM_FanControl" when it runs. If the program is the first to attempt creating this mutex (i.e., `createdNew` is `true`), it gains initial ownership of the mutex and can continue executing. If an instance is already running (`createdNew` is `false`), the program outputs a message and exits. Running the program again will prompt the existing instance to adjust the fan speed. Any input in the main instance interface will close the main instance.
 
 ### V0.51
-原有的程序是通过C#编写的，可执行文件**开启管理员权限**之后就可以接管对于风扇的控制。  
-通过C#编写了两个实例分别发送加速和减速的信号，但在运行实例的时候必须同样开启管理员权限。  
-  
-为了避免每次发送通信信号都需要开启管理员权限的通知，采用了Task Scheduler来绕过UAC的提示。  
-（目前这一步需要用户自己在任务管理器创建名为**fanSlow**和**fanFast**的任务进程）
+The original program, written in C#, requires **administrative rights** to take control of the fan. Two instances were created to send acceleration and deceleration signals, but these also required administrative rights to operate.
 
-在function文件夹中的两个C#程序则分别唤醒系统里fanSlow和fanFast的任务，理论上来说是不需要编写exe文件，用vbs文件就可以。
-编写exe文件的主要目的在于可以使用第三方程序指定快捷键来运行exe可执行文件，而vbs则不行。
+To avoid constant UAC prompts for administrative permission when sending signals, Task Scheduler is used to bypass the UAC prompts. (Currently, users need to manually create tasks named **fanSlow** and **fanFast** in the Task Manager.)
+
+The two C# programs in the function folder respectively trigger the fanSlow and fanFast tasks in the system. In theory, there is no need to write .exe files, as .vbs files could suffice. The main reason for creating .exe files is to allow third-party programs to assign shortcuts to run these executables, which is not feasible with .vbs scripts.
 
 ### V0.51.1
-增加了控制水泵速度的功能。  
-默认为25%（0.9L/min）当风扇转速达到70%以上的时候，水泵速度调整到35%（1.1L/min）。  
+Added functionality to control the speed of the water pump. The default is 25% (0.9L/min), and when the fan speed reaches above 70%, the water pump speed is adjusted to 35% (1.1L/min).
 
-## 注意事项：
-- 必须将文件部署到本地磁盘，**网络连接的磁盘无法启动管理员权限**。  
-- 必须至少有一个主实例运行才能够保持风扇转速的调整。
-- 由于硬件设备的性能涉及到管理员权限操作，所以请务必**开启管理员权限**或以管理员身份运行程序，否则会报错。
-- 目前部署之后还需要一定的手动操作来完成自动化设置，后续如果有时间会在继续改进争取一键懒人部署。
+## Precautions:
+- Files must be deployed on a local disk as **network-connected disks cannot initiate administrative rights**.
+- At least one main instance must be running to maintain the adjustment of fan speed.
+- Due to the involvement of hardware device performance and administrative rights operations, please ensure to **enable administrative rights** or run the program as an administrator, otherwise, errors will occur.
+- Manual operations are still needed after deployment to complete the automation setup. If time permits, future improvements will aim for a one-click lazy deployment.
 
-## 步骤：
-编译的部分需要使用VS的命令行来进行：  
-`csc /out:fanSpeedFast.exe fanSpeedFast.cs`  
-或者用`dotnet build`和`publish`的命令来生成可执行的fast.exe或者slow.exe
-  
-### 降低使用过程中的突兀感
-- #### 使用Task Scheduler来绕过UAC的提示:
+## Steps:
+Compilation needs to be done using the VS command line:
+`csc /out:fanSpeedFast.exe fanSpeedFast.cs`
+Alternatively, use the `dotnet build` and `publish` commands to generate executable files for fast.exe or slow.exe.
+
+### Reducing Intrusiveness During Use
+- #### Using Task Scheduler to bypass UAC prompts:
     - [How to Create an Elevated Program Shortcut without a UAC Prompt in Windows](https://www.sevenforums.com/tutorials/11949-elevated-program-shortcut-without-uac-prompt-create.html)
     - [How To Add Program To UAC Exception In Windows 10?](https://silicophilic.com/add-program-to-uac-exception/)
-- #### 使用vbs脚本来执行任务指令。
-> Q: 为什么不使用PowerShell或者Shortcut或者cmd?  
-我个人尝试了这三种情况都会弹出窗口，一闪而过，但理论上来说应该也是可以避免的，不过vbs比较简单就用了。
+- #### Using vbs scripts to execute task commands.
+> Q: Why not use PowerShell, Shortcut, or cmd?
+I personally tried all three and they would pop up a window briefly, but theoretically, it should be avoidable. However, vbs is simpler, so I used it.
 
-
-### 友情链接：
-感谢所有的开源开发者以及OpenHardwareMoniter的制作者和维护者们。
-- [OpenHardwareMoniter](https://github.com/openhardwaremonitor/openhardwaremonitor)  
+### Acknowledgements:
+Thanks to all the open-source developers and the creators and maintainers of OpenHardwareMonitor.
+- [OpenHardwareMonitor](https://github.com/openhardwaremonitor/openhardwaremonitor)
 - [The Open Hardware Monitor WMI Provider](https://openhardwaremonitor.org/wordpress/wp-content/uploads/2011/04/OpenHardwareMonitor-WMI.pdf)
+
+
+### [中文说明](README_CN.md)
