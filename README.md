@@ -2,6 +2,8 @@
 
 A C# program for controlling computer fan speed (Hardware).
 
+![image](./public/image/fanCtrl.png)
+
 ## Implementation Principle:
 Initially, the plan was to use WMI for adjustments, but the WMI interface only provided monitoring capabilities without modification features. Therefore, OpenHardwareMonitorLib.dll is currently used as the interface, offering a range of commands for monitoring and adjusting hardware at a low level. To avoid issues with multiple instances running concurrently, the Mutex class is employed to ensure that only one instance of the program is running. Mutex is a synchronization primitive used to coordinate multiple threads' access to a shared resource.
 
