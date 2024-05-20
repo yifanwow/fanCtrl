@@ -25,6 +25,13 @@ Added functionality to control the speed of the water pump. The default is 25% (
 - Due to the involvement of hardware device performance and administrative rights operations, please ensure to **enable administrative rights** or run the program as an administrator, otherwise, errors will occur.
 - Manual operations are still needed after deployment to complete the automation setup. If time permits, future improvements will aim for a one-click lazy deployment.
 
+## Interface
+- Start   
+![image](./public/image/software.png)  
+- After some commands executed  
+![image](./public/image/software2.png)  
+
+
 ## Steps:
 Compilation needs to be done using the VS command line:
 `csc /out:fanSpeedFast.exe fanSpeedFast.cs`

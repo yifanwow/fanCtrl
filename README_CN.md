@@ -1,5 +1,7 @@
 # fanCtrl
 A C# program to control your computer fan speed (Hardware).  
+  
+![image](./public/image/fanCtrl.png)  
 
 ## 实现原理：
 原本是打算用wmi的方式来进行调整的，但是wmi的接口只提供了监听而不提供修改的功能。  
@@ -30,7 +32,11 @@ A C# program to control your computer fan speed (Hardware).
 - 必须至少有一个主实例运行才能够保持风扇转速的调整。
 - 由于硬件设备的性能涉及到管理员权限操作，所以请务必**开启管理员权限**或以管理员身份运行程序，否则会报错。
 - 目前部署之后还需要一定的手动操作来完成自动化设置，后续如果有时间会在继续改进争取一键懒人部署。
-
+## 界面：
+- Start   
+![image](./public/image/software.png)  
+- After some commands executed  
+![image](./public/image/software2.png)  
 ## 步骤：
 编译的部分需要使用VS的命令行来进行：  
 `csc /out:fanSpeedFast.exe fanSpeedFast.cs`  
