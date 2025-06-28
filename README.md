@@ -3,6 +3,33 @@
 A C# program for controlling computer fan speed (Hardware).
 
 ![image](./public/image/fanCtrl.png)
+## Rebuild Plan 06/28/2025
+### Step-by-Step Plan
+
+#### 1. Develop the Frontend UI
+- Rewrite the frontend interface using JavaScript.
+- Build a fan control UI, such as displaying current speed and control buttons.
+- Package and generate static frontend assets.
+
+#### 2. Bridge Electron and C# Backend
+- Use Node.js child processes or named pipes to invoke fanctrl.exe.
+- Read and display the output from fanctrl.exe for logging purposes.
+
+#### 3. Create a Secure API Interface
+- Use `preload.js` to expose backend methods to the frontend.
+- Use Electron's IPC communication mechanism for data exchange.
+
+#### 4. Integrate Backend Logic into Frontend
+- Trigger fanctrl logic via frontend controls (e.g., buttons).
+- Dynamically update the UI to reflect success or failure feedback.
+
+#### 5. Package the Desktop Application
+
+#### 6. Other Key Improvements
+- Show notifications in the bottom right corner upon successful speed adjustments to enhance user feedback.
+- Enable application auto-start on system boot.
+- Restart automatically if the program crashes.
+- Optimize the core logic of the software.
 
 ## Implementation Principle:
 Initially, the plan was to use WMI for adjustments, but the WMI interface only provided monitoring capabilities without modification features. Therefore, OpenHardwareMonitorLib.dll is currently used as the interface, offering a range of commands for monitoring and adjusting hardware at a low level. To avoid issues with multiple instances running concurrently, the Mutex class is employed to ensure that only one instance of the program is running. Mutex is a synchronization primitive used to coordinate multiple threads' access to a shared resource.
