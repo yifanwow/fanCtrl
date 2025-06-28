@@ -3,6 +3,36 @@ A C# program to control your computer fan speed (Hardware).
   
 ![image](./public/image/fanCtrl.png)  
 
+## 重构计划 06/28/2025
+对现有的 C# 桌面程序进行现代化升级，使用 JavaScript 框架替换前端 UI，同时保留原有的风扇控制后端逻辑，并通过 Electron 实现桥接与桌面打包。
+
+### 分步计划
+
+#### 1. 开发前端 UI
+- Javascript重写前端界面。
+- 构建风扇控制 UI，例如显示当前速度、调节按钮等。
+- 打包生成静态资源
+
+#### 2. Electron 与 C# 后端桥接
+- 使用 Node.js 子进程或命名管道调用 fanctrl.exe
+- 读取 fanctrl.exe 输出以显示日志
+
+#### 3. 建立安全 API 接口
+- 使用 `preload.js` 暴露接口给前端页面调用
+- 使用 Electron 的 IPC 通信机制进行数据交互
+
+#### 4. 前端集成后端逻辑
+- 前端通过按钮等方式调用 fanctrl 控制逻辑
+- 动态更新 UI 状态，显示成功或失败信息
+
+#### 5. 打包桌面应用
+
+#### 6. 其他重点更新
+- 成功调节速度后在右下角发送通知，提升用户使用感知。
+- 开机自自动。
+- 程序崩溃自启动。
+- 优化软件本身逻辑。
+
 ## 实现原理：
 原本是打算用wmi的方式来进行调整的，但是wmi的接口只提供了监听而不提供修改的功能。  
 所以目前是使用OpenHardwareMonitorLib.dll作为接口，其提供了一系列对于设备底层的监控和调整的指令。  
