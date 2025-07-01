@@ -1,5 +1,0 @@
-F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\publish\runSlow.exe
-F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\publish\runSlow.dll
-F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\publish\runSlow.deps.json
-F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\publish\runSlow.runtimeconfig.json
-F:\Software_develop\git\fanCtrl\function\runslow\bin\Debug\net7.0\publish\runSlow.pdb

@@ -1,5 +1,0 @@
-F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\publish\slow.exe
-F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\publish\slow.dll
-F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\publish\slow.deps.json
-F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\publish\slow.runtimeconfig.json
-F:\Software_develop\git\fanCtrl\control\slow\bin\Debug\net7.0\publish\slow.pdb

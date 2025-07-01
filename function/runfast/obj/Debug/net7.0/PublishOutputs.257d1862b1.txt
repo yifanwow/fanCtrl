@@ -1,5 +1,0 @@
-F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\publish\runFast.exe
-F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\publish\runFast.dll
-F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\publish\runFast.deps.json
-F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\publish\runFast.runtimeconfig.json
-F:\Software_develop\git\fanCtrl\function\runfast\bin\Debug\net7.0\publish\runFast.pdb

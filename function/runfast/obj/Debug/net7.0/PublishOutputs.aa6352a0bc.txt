@@ -1,5 +1,0 @@
-F:\Software_develop\git\fanCtrl\hindCmd\bin\Debug\net7.0\publish\hindCmd.exe
-F:\Software_develop\git\fanCtrl\hindCmd\bin\Debug\net7.0\publish\hindCmd.dll
-F:\Software_develop\git\fanCtrl\hindCmd\bin\Debug\net7.0\publish\hindCmd.deps.json
-F:\Software_develop\git\fanCtrl\hindCmd\bin\Debug\net7.0\publish\hindCmd.runtimeconfig.json
-F:\Software_develop\git\fanCtrl\hindCmd\bin\Debug\net7.0\publish\hindCmd.pdb
