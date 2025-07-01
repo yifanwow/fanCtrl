@@ -7,10 +7,12 @@ export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
 
   return (
-    <div>
-      <TabBar currentTab={currentTab} onTabChange={setCurrentTab} />
-      <div style={{ padding: '20px' }}>
-        {currentTab === 'home' ? <HomePage /> : <ActivityPage />}
+    <div className="screen-wrapper">
+      <div className="screen-content">
+        <TabBar currentTab={currentTab} onTabChange={setCurrentTab} />
+        <div className="main-area">
+          {currentTab === 'home' ? <HomePage /> : <ActivityPage />}
+        </div>
       </div>
     </div>
   );

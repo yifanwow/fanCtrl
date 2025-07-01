@@ -4,11 +4,12 @@ import FanSpeedBlock from '../components/FanSpeedBlock';
 import PumpSpeedBlock from '../components/PumpSpeedBlock';
 
 export default function HomePage() {
-  return (
-    <div>
-      <HardwareInfoBlock />
-      <FanSpeedBlock />
-      <PumpSpeedBlock />
-    </div>
-  );
-}
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <HardwareInfoBlock />
+        <FanSpeedBlock />
+        <PumpSpeedBlock />
+      </div>
+    );
+  }
+  

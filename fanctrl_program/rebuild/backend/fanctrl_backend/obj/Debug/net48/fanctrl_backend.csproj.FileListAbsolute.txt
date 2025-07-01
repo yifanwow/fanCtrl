@@ -1,0 +1,13 @@
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.csproj.AssemblyReference.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.csproj.SuggestedBindingRedirects.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.GeneratedMSBuildEditorConfig.editorconfig
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.AssemblyInfoInputs.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.AssemblyInfo.cs
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.csproj.CoreCompileInputs.cache
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\bin\Debug\net48\fanctrl_backend.exe.config
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\bin\Debug\net48\fanctrl_backend.exe
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\bin\Debug\net48\fanctrl_backend.pdb
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\bin\Debug\net48\OpenHardwareMonitorLib.dll
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.csproj.CopyComplete
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.exe
+F:\Software_develop\git\fanCtrl\fanctrl_program\rebuild\backend\fanctrl_backend\obj\Debug\net48\fanctrl_backend.pdb

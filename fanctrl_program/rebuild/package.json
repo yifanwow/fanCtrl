@@ -1,0 +1,12 @@
+{
+  "name": "fanctrl-desktop",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+  "start": "electron ."
+},
+
+  "devDependencies": {
+    "electron": "^37.1.0"
+  }
+}
