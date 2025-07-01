@@ -1,0 +1,30 @@
+# Node.js
+node_modules/
+dist/
+.vite/
+
+# Electron
+*.log
+*.tsbuildinfo
+*.DS_Store
+
+# C#
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+
+# VSCode
+.vscode/
+.history/
+
+# Others
+*.zip
+*.rar
+*.7z
+*.tmp
+*.bak
